@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня - Меню</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☕ Наша кофейня</h1>
+            <div class="cart-info">
+                <span id="cart-count">0</span> ₽
+                <button onclick="openCart()">🛒 Корзина</button>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="filterCategory('all')">Все</button>
+            <button class="tab" onclick="filterCategory('coffee')">Кофе</button>
+            <button class="tab" onclick="filterCategory('tea')">Чай</button>
+            <button class="tab" onclick="filterCategory('bakery')">Выпечка</button>
+            <button class="tab" onclick="filterCategory('dessert')">Десерты</button>
+        </div>
+
+        <div id="menu-items" class="menu-grid">
+            <!-- Меню будет загружено через JavaScript -->
+        </div>
+
+        <div class="time-selection" id="time-selection" style="display: none;">
+            <h3>⏰ Заказать на время</h3>
+            <input type="time" id="scheduled-time">
+            <button onclick="confirmTime()">Подтвердить время</button>
+            <button onclick="cancelTime()" class="secondary">Отмена</button>
+        </div>
+
+        <div class="checkout-section">
+            <button onclick="openCheckout()" class="checkout-btn" disabled id="checkout-btn">
+                Перейти к оформлению
+            </button>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Ваша корзина</h2>
+                <span class="close" onclick="closeCart()">&times;</span>
+            </div>
+            <div id="cart-items">
+                <!-- Товары в корзине -->
+            </div>
+            <div class="cart-total">
+                <h3>Итого: <span id="total-amount">0</span> ₽</h3>
+            </div>
+            <div class="cart-actions">
+                <button onclick="openCheckout()">Оформить заказ</button>
+                <button onclick="clearCart()" class="secondary">Очистить корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
